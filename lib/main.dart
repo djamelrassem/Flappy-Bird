@@ -44,7 +44,7 @@ class _GameBackgroundState extends State<GameBackground>
       double positionObstacle = getPositionOfObsatcle();
       double positionBird = getPostitionOfBird();
       if ((positionObstacle < -0.15 && positionObstacle > -0.25) &&
-          (positionBird > 0.5 || positionBird < 0.0)) {
+          (positionBird > 0.5 || positionBird < 0.05)) {
         obstacleController.reset();
         obstacleController.repeat();
         setState(() {
@@ -102,12 +102,12 @@ class _GameBackgroundState extends State<GameBackground>
             Container(
               height: height * 0.5,
               width: 30,
-              color: Colors.green,
+              color: Color(0xff10D120),
             ),
             Container(
               height: height * 0.25,
               width: 30,
-              color: Colors.green,
+              color: Color(0xff10D120),
             )
           ],
         ),
@@ -128,6 +128,16 @@ class _GameBackgroundState extends State<GameBackground>
         backgroundColor: Colors.white,
         body: Stack(
           children: <Widget>[
+            Center(
+                child: Text(
+              '$counter',
+              style: TextStyle(fontSize: 60),
+            )),
+            Align(alignment: 
+            Alignment.bottomCenter,child: Container(
+              height : 100 , 
+              color :Colors.green,
+            ),),
             InkWell(
               onTap: () {
                 setState(() {
@@ -141,11 +151,7 @@ class _GameBackgroundState extends State<GameBackground>
             ),
             AnimatedBuilder(
                 builder: builderObstacle, animation: obstacleMouvement),
-            Center(
-                child: Text(
-              '$counter',
-              style: TextStyle(fontSize: 50),
-            ))
+            
           ],
         ));
   }
