@@ -128,6 +128,7 @@ class _GameBackgroundState extends State<GameBackground>
         backgroundColor: Colors.white,
         body: Stack(
           children: <Widget>[
+            Container(color: Colors.blue[100],),
             Center(
                 child: Text(
               '$counter',
